@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tecart Remedial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Iceberg&family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .metal-mania {
+        font-family: "Metal Mania", cursive;
+      }
+      .iceberg {
+        font-family: "Iceberg", cursive;
+      }
+      .roboto-mono {
+        font-family: "Roboto Mono", monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-screen h-screen bg-black p-6">
+      <div
+        class="bg-[url('half-background.jpeg')] bg-no-repeat bg-[#082345] w-full h-full p-4 flex justify-end"
+      >
+        <div
+          class="bg-[#082345] text-white border-blue-200 border-4 p-8 flex flex-col justify-center items-center h-full w-6/12"
+        >
+          <h1 class="metal-mania text-7xl uppercase">Tecart Insider</h1>
+          <p class="iceberg mt-8 text-lg">
+            We are organization base on Udayana University, we share our
+            perspective about the world to student in engineering faculty.
+          </p>
+          <ul class="roboto-mono mt-8 flex flex-col gap-4">
+            <li class="flex items-center gap-4">
+              <div class="w-8 h-8 bg-white rounded-full flex">
+                <i class="fa-solid fa-check fa-xl text-blue-500 m-auto"></i>
+              </div>
+              <p>
+                Mainly talk programming, ui/ux, networking, bussiness
+                intelegent.
+              </p>
+            </li>
+            <li class="flex items-center gap-4">
+              <div class="w-8 h-8 bg-white rounded-full flex">
+                <i class="fa-solid fa-check fa-xl text-blue-500 m-auto"></i>
+              </div>
+              <p>Analyzing with AI, with comprehensive algorithm</p>
+            </li>
+            <li class="flex items-center gap-4">
+              <div class="w-8 h-8 bg-white rounded-full flex">
+                <i class="fa-solid fa-check fa-xl text-blue-500 m-auto"></i>
+              </div>
+              <p>And many more !!!</p>
+            </li>
+          </ul>
+          <form
+            onsubmit="handleForm(event)"
+            class="roboto-mono mt-8 flex flex-col w-full"
+          >
+            <div class="flex justify-between">
+              <label for="">Email Address :</label>
+              <span id="text-warning" class="text-red-400 hidden"
+                >Valid Email Required !</span
+              >
+            </div>
+            <input
+              type="email"
+              id="email"
+              class="mt-4 bg-blue-200 px-4 py-3 rounded-xl text-black"
+            />
+            <button
+              class="mt-4 px-4 py-3 bg-blue-500 rounded-xl hover:opacity-90"
+              onclick="handleForm(event)"
+            >
+              Subscribe to Monthly Newsletter
+            </button>
+          </form>
+          <h3 class="iceberg mt-8 uppercase hidden text-2xl">
+            Thanks For Subscribe
+          </h3>
+        </div>
+      </div>
+    </div>
+    <script>
+      function handleForm(e) {
+        e.preventDefault();
+
+        const emailInput = document.getElementById("email");
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value)) {
+          emailInput.classList.remove("bg-blue-200");
+          emailInput.classList.add("bg-red-300");
+          document.getElementById("text-warning").classList.remove("hidden");
+          return;
+        }
+
+        document.querySelector("ul").classList.add("hidden");
+        document.querySelector("form").classList.add("hidden");
+        document.querySelector("h3").classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>
